@@ -11,7 +11,7 @@ METHOD_LIST     = {'mlf1' 'mlf2' 'mdspack' 'kan1' 'paaa' 'paaalr'};
 
 %%% Number of random draw and examples number
 NTEST           = 500;
-spaceCAS        = 1:3;%:50;
+spaceCAS        = 1:50;
 
 %%% Constant random seed to ensure reproducibility (at least on a given MATLAB setting)
 rng(1712)

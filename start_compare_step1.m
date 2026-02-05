@@ -43,7 +43,7 @@ paramAAALR.comb = mlf.combinations_dim([length(paramAAALR.tol) length(paramAAALR
 
 %%% Number of random draw and examples number
 NTEST           = 500;
-spaceCAS        = 2:3;%1:50;
+spaceCAS        = 1:50;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% NO NEED TO CHANGE FROM HERE

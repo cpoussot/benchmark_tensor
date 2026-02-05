@@ -11,7 +11,7 @@ TEX_PATH    = '/Users/charles/Library/CloudStorage/ProtonDrive-charles.poussot@p
 METHOD_LIST = {'mlf1' 'mlf2' 'mdspack' 'kan1' 'paaa' 'paaalr'}; 
 
 %%% Variables
-spaceCas    = 1:3;%1:50;
+spaceCas    = 1:50;
 MODULUS     = 10;
 PLOT_2D     = true;
 PLOT_ERR    = true;
