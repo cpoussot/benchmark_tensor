@@ -65,11 +65,11 @@ if N <= Nmax
 
     %%% Transfer function in Lagrangian
     [glag,ilag] = mlf.tf_lagrangian(p_c,w,c,false);
-    %[num,den]   = numden(glag);
-    num         = ilag.num_coeff;
-    den         = ilag.den_coeff;
-    num         = simplify(sum(num.*ilag.basis));
-    den         = simplify(sum(den.*ilag.basis));
+    [num,den]   = numden(simplify(glag));
+    %num         = ilag.num_coeff;
+    %den         = ilag.den_coeff;
+    %num         = simplify(sum(num.*ilag.basis));
+    %den         = simplify(sum(den.*ilag.basis));
     d0 = den; for iii = 1:n; d0 = subs(d0,['s' num2str(iii)],0); end; num = num/d0; den = den/d0;
     latexList   = [latexList '\noindent \textbf{Lagrangian form} '];
     latexList   = [latexList '(basis, numerator and denominator coefficients):'];
@@ -213,7 +213,7 @@ else
     latexList   = [latexList ['\IL & \in & \IC^{' n ' \times ' n '}\\' ]];
     latexList   = [latexList ['\bc & \in & \IC^{' n '}\\' ]];
     latexList   = [latexList ['\bw & \in & \IC^{' n '}\\' ]];
-    latexList   = [latexList ['\bc\cdot \bw & \in & \IC^{' n '}\\' ]];
+    latexList   = [latexList ['\bc\odot \bw & \in & \IC^{' n '}\\' ]];
     latexList   = [latexList ['\mathbf{Lag}' vars ' & \in & \IC^{' n '}\\' ]];
     latexList   = [latexList '\end{array} $$' ];
 end
@@ -221,12 +221,12 @@ end
 %%% Some minor text-style
 latexList = strrep(latexList,'\mathrm{rc}','\bc');
 latexList = strrep(latexList,'\mathrm{rw}','\bw');
-latexList = strrep(latexList,'\mathrm{rcw}','\bc\cdot\bw');
+latexList = strrep(latexList,'\mathrm{rcw}','\bc\odot\bw');
 latexList = strrep(latexList,'\mathrm{lag}','\mathbf{Lag}^{-1}');
-% Replace bary with \bc 
-for ii = 1:numel(p_c)
-    latexList = strrep(latexList,['\mathrm{bary}_{' num2str(ii) '}'],['\bc^{\var{' num2str(ii) '}}\cdot \mathbf{Lag}(\var{' num2str(ii) '})']);
-end
+% % Replace bary with \bc 
+% for ii = 1:numel(p_c)
+%     latexList = strrep(latexList,['\mathrm{bary}_{' num2str(ii) '}'],['\bc^{\var{' num2str(ii) '}}\odot \mathbf{Lag}(\var{' num2str(ii) '})']);
+% end
 % Replace s with \var 
 for ii = 1:numel(p_c)
     latexList = strrep(latexList,['s_{' num2str(ii) '}'],['\var{' num2str(ii) '}']);
