@@ -1,17 +1,19 @@
 clear variables; close all; clc; format short
-%%% Addpath of all the methods
-add_path_third_parties
-
-%%% Chose the directory for result save 
-% /!\ Same as "RESULT_PATH", line 6 in "start_compare_step1.m"
-RESULT_PATH = '/Users/charles/Library/CloudStorage/ProtonDrive-charles.poussot@proton.me-folder/Research/Benchmarks/mLF_evaluation/vtest/results';
-TEX_PATH    = '/Users/charles/Library/CloudStorage/ProtonDrive-charles.poussot@proton.me-folder/Research/Benchmarks/mLF_evaluation/vtest/tex_pdf';
+%%% Addpath of all the methods & initialize
+start_init
 
 %%% Chose method list 
+% Be careful, you need to have added these methods in you path
+% 'mlf1' (https://github.com/cpoussot/mLF)
+% 'mlf3' (https://github.com/cpoussot/mLF)
+% 'mdspack' (https:/l/mordigitalsystems.fr/)
+% 'kan1' (https://github.com/andrewpolar)
+% 'paaa' (https://github.com/lbalicki/parametric-AAA)
+% 'paaalr' (https://github.com/lbalicki/parametric-AAA)
+% 'tensorflow' (https://www.tensorflow.org/?hl=fr)
 METHOD_LIST = {'mlf1' 'mlf2' 'mdspack' 'kan1' 'paaa' 'paaalr'}; 
 
 %%% Variables
-spaceCas    = 1:50;
 MODULUS     = 10;
 PLOT_2D     = true;
 PLOT_ERR    = true;
@@ -32,15 +34,13 @@ FIG_TIME    = 1e4;
 FIG_DATA    = 1e5;
 FIG_ALL     = 1e7;
 fun_time    = @(x) mean( x(x>0 & ~isnan(x)));
-%%% Constant random seed to ensure reproducibility (at least on a given MATLAB setting)
-rng(1712)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% NO NEED TO CHANGE FROM HERE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 kk  = 0;
 if ~exist(TEX_PATH); mkdir(TEX_PATH); end
-for CAS = spaceCas
+for CAS = SPACE_CAS
     %
     if ~exist([TEX_PATH '/figures/case_' num2str(CAS)]); mkdir([TEX_PATH '/figures/case_' num2str(CAS)]), end 
     if ~exist([TEX_PATH '/figures/stat']); mkdir([TEX_PATH '/figures/stat']), end 
@@ -134,7 +134,7 @@ for CAS = spaceCas
         if (mod(kk,MODULUS) == 0)
             set(gca,'xtick',(1:NALG:NALG*MODULUS)+1,'xticklabel',NAMES(kk-MODULUS+1:kk),'TickLabelInterpreter','latex')
             if SAVEIT; mlf.figSavePDF([TEX_PATH '/figures/stat/err_' num2str(kk/MODULUS)],.5); end
-        elseif (kk == length(spaceCas))
+        elseif (kk == length(SPACE_CAS))
             set(gca,'xtick',(1:NALG:NALG*MODULUS)+1,'xticklabel',NAMES(kk-mod(kk,MODULUS)+1:kk),'TickLabelInterpreter','latex')
             if SAVEIT; mlf.figSavePDF([TEX_PATH '/figures/stat/err_' num2str(ceil(kk/MODULUS))],.5); end
         end
@@ -149,7 +149,7 @@ for CAS = spaceCas
         if (mod(kk,MODULUS) == 0)
             set(gca,'xtick',(1:NALG:NALG*MODULUS)+1,'xticklabel',NAMES(kk-MODULUS+1:kk),'TickLabelInterpreter','latex')
             if SAVEIT; mlf.figSavePDF([TEX_PATH '/figures/stat/time_' num2str(kk/MODULUS)],.5); end
-        elseif (kk == length(spaceCas))
+        elseif (kk == length(SPACE_CAS))
             set(gca,'xtick',(1:NALG:NALG*MODULUS)+1,'xticklabel',NAMES(kk-mod(kk,MODULUS)+1:kk),'TickLabelInterpreter','latex')
             if SAVEIT; mlf.figSavePDF([TEX_PATH '/figures/stat/time_' num2str(ceil(kk/MODULUS))],.5); end
         end
@@ -164,7 +164,7 @@ for CAS = spaceCas
         if (mod(kk,MODULUS) == 0)
             set(gca,'xtick',(1:NALG:NALG*MODULUS)+1,'xticklabel',NAMES(kk-MODULUS+1:kk),'TickLabelInterpreter','latex')
             if SAVEIT; mlf.figSavePDF([TEX_PATH '/figures/stat/data_' num2str(kk/MODULUS)],.5); end
-        elseif (kk == length(spaceCas))
+        elseif (kk == length(SPACE_CAS))
             set(gca,'xtick',(1:NALG:NALG*MODULUS)+1,'xticklabel',NAMES(kk-mod(kk,MODULUS)+1:kk),'TickLabelInterpreter','latex')
             if SAVEIT; mlf.figSavePDF([TEX_PATH '/figures/stat/data_' num2str(ceil(kk/MODULUS))],.5); end
         end

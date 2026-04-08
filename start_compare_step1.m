@@ -1,12 +1,9 @@
 clear variables; close all; clc; format short
-%%% Addpath of all the methods
-add_path_third_parties
-
-%%% Chose the directory for result save
-RESULT_PATH     = '/Users/charles/Library/CloudStorage/ProtonDrive-charles.poussot@proton.me-folder/Research/Benchmarks/mLF_evaluation/vtest/results';
+%%% Addpath of all the methods & initialize
+start_init
 
 %%% Chose method list & set tensor size limit
-% Be carefull, you need to have added these methods in you path
+% Be careful, you need to have added these methods in you path
 % 'mlf1' (https://github.com/cpoussot/mLF)
 % 'mlf3' (https://github.com/cpoussot/mLF)
 % 'mdspack' (https://mordigitalsystems.fr/)
@@ -49,14 +46,10 @@ paramAAALR.comb = mlf.combinations_dim([length(paramAAALR.tol) length(paramAAALR
 % TensorFlow (https://www.tensorflow.org/?hl=fr)
 % Not available in this version yet
 
-%%% Number of random draw and examples number
-NTEST           = 500;
-spaceCAS        = 1%:50;
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% NO NEED TO CHANGE FROM HERE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-for CAS = spaceCAS%1:50 
+for CAS = SPACE_CAS
     %%% Load model and extract variables
     [H,infoCas] = mlf.examples(CAS)
     n           = infoCas.n;

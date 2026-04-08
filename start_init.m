@@ -5,6 +5,18 @@ set(groot,'defaultaxesfontsize',18)
 set(groot,'defaulttextinterpreter','latex')
 set(groot,'defaultlegendinterpreter','latex')
 
+%%% Cases under consideration (check list in "mlf.examples")
+SPACE_CAS   = 1:2 %1:50;
+
+%%% Number of random draw and constant random seed to ensure reproducibility
+NTEST       = 500;
+rng(1712)
+
+%%% Chose the directory for result save 
+RESULT_PATH = '/Users/charles/Library/CloudStorage/ProtonDrive-charles.poussot@proton.me-folder/Research/Benchmarks/mLF_evaluation/vtest/results';
+TEX_PATH    = '/Users/charles/Library/CloudStorage/ProtonDrive-charles.poussot@proton.me-folder/Research/Benchmarks/mLF_evaluation/vtest/tex_pdf';
+
+%%% Add path of the available methods
 % MLF
 addpath('/Users/charles/Documents/GIT/mlf')
 % MDSPACK

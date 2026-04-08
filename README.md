@@ -33,25 +33,44 @@ This repository accompany the article by C. Poussot-Vassal, I-V. Gosea, P. Vuill
 
 # The "benchmark_tensor" MATLAB package 
 
-The package contains
-- `+run`: a set of functions
-
+The package contains the necessary material to constuct an evaluation report as the one given in ["Tensor-based multivariate function approximation: methods benchmarking and comparison"](https://arxiv.org/abs/2506.04791).
 
 ## Dependencies
 
 - MATLAB R2023b or later (tested on this version)
-- Toolboxes: the one listed in the introduction/overview section
-- It is strongly recommended to dpwnload at least ["mlf"](https://github.com/cpoussot/mLF) since some printing function are embdedde there.
+- It is strongly recommended to download at least ["mlf"](https://github.com/cpoussot/mLF) since some printing and evaluation functions are embeded there.
 
-## A simple MATLAB code example
+## Detailed description
 
-We provide two examples to test the approach. Refer to [SIAM Review paper](https://doi.org/10.1137/24M1656657) / [arXiv paper](https://arxiv.org/abs/2405.00495) for notations and related equations. 
+The package contains:
+- `+run`: a set of functions for evaluation.
+- `start_init`: a script that initialize the main variables,
+    - it declares the main variables:
+        - `SPACE_CAS=1:50`, the considered examples list (see `mlf.examples`)
+        - `NTEST=500`, the number of random draw for evaluation of the model mismatch
+        - `RESULT_PATH`, the path where you want to save the results (in the actual version, the path are my local ones, you should update them with yours)
+        - `TEX_PATH`, the path where you want to save the LaTeX code generated and used for the report (in the actual version, the path are my local ones, you should update them with yours)
+    - adds to the Matlab path of the third parties software (in the actual version, the path are my local ones, you should update them with yours);
+- `start_compare_step1`: this script applies the different approximation methods using different parametrizations.
+- `start_compare_step2`: this script evaluates the approximation quality of the different methods with different tuning parameters wrt. the true function and keeps the best candidate per method (over all parametrizations).
+- `start_compare_step3`: this script evaluate the best candidate for each method and report some statistics and figures.
 
-First add the path where the `+mlf` package is.
 
-```Matlab
-addpath("location_of_mlf") % Add the location of the +mlf package
-```
+## A simple procedure
+
+- Set the variables in `start_init`
+    - Set e.g. `SPACE_CAS=1:2`, `NTEST=500`
+    - Chose the `RESULT_PATH` and `TEX_PATH`
+    - Set the path for each method
+- Run `start_compare_step1`
+    - In `RESULT_PATH`, folders for the different methods are created, and in each folder, Matlab files with the computed models is created (e.g. `RESULT_PATH/mlf1/cas_1_mlf1.mat`).
+- Run `start_compare_step2`
+    - In `RESULT_PATH`, in the same folder, a Matlab file containnig the best model is saved (e.g. `RESULT_PATH/mlf1/cas_1_mlf1_best.mat`).
+- Run `start_compare_step3`
+    - In `TEX_PATH/figures`, a folder with the results related to each case are saved  (e.g. `TEX_PATH/figures/case_1/all_stat.pdf`, `TEX_PATH/figures/case_1/eval_scaled.pdf`, `TEX_PATH/figures/case_1/table_main.tex`, `TEX_PATH/figures/case_1/text_loe.tex`, `TEX_PATH/figures/case_1/text_main.tex` and `TEX_PATH/figures/case_1/text_slide.tex`). These figures and LaTeX code will be used for reporting.
+- Copy the files contained in `tex_pdf` in `TEX_PATH`
+- Open `main.tex` and check line 31: originally it is `\def\CAS{2}`, where the `2` is related to the number of computed examples chosen in `SPACE_CAS`.
+- Then compile the LaTeX file and obtain a PDf with the report.
 
 ## Feedbacks
 

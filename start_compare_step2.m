@@ -1,25 +1,22 @@
 clear variables; close all; clc; format short
-%%% Addpath of all the methods
-add_path_third_parties
+%%% Addpath of all the methods & initialize
+start_init
 
-%%% Chose the directory for result save 
-% /!\ Same as "RESULT_PATH", line 6 in "start_compare_step1.m"
-RESULT_PATH     = '/Users/charles/Library/CloudStorage/ProtonDrive-charles.poussot@proton.me-folder/Research/Benchmarks/mLF_evaluation/vtest/results';
-
-%%% Chose method list 
+%%% Chose method list & set tensor size limit
+% Be careful, you need to have added these methods in you path
+% 'mlf1' (https://github.com/cpoussot/mLF)
+% 'mlf3' (https://github.com/cpoussot/mLF)
+% 'mdspack' (https://mordigitalsystems.fr/)
+% 'kan1' (https://github.com/andrewpolar)
+% 'paaa' (https://github.com/lbalicki/parametric-AAA)
+% 'paaalr' (https://github.com/lbalicki/parametric-AAA)
+% 'tensorflow' (https://www.tensorflow.org/?hl=fr)
 METHOD_LIST     = {'mlf1' 'mlf2' 'mdspack' 'kan1' 'paaa' 'paaalr'}; 
-
-%%% Number of random draw and examples number
-NTEST           = 500;
-spaceCAS        = 1:50;
-
-%%% Constant random seed to ensure reproducibility (at least on a given MATLAB setting)
-rng(1712)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% NO NEED TO CHANGE FROM HERE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-for CAS = spaceCAS
+for CAS = SPACE_CAS
     %%% Load model 
     [H,infoCas] = mlf.examples(CAS)
     %%% Random draw
