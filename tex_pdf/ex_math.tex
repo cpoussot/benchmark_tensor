@@ -1,35 +1,44 @@
+%%% Colors
 \definecolor{blue}{RGB}{16,97,169} % bleu onera
 \definecolor{grey}{RGB}{88, 102, 110} % gris onera 
-\definecolor{green}{RGB}{65,209,204} % turquoise
+%\definecolor{green}{RGB}{65,209,204} % turquoise
+\definecolor{green}{RGB}{0,153,0} % turquoise
 \definecolor{orange}{RGB}{224, 131, 0} % corail
 \definecolor{pink}{RGB}{255,105,180} % rose
+\definecolor{purple}{RGB}{178,102,255} % violet
 
-\providecommand{\white}[1]{{\color{white}{#1}}} 
 \providecommand{\blue}[1]{{\color{blue}{#1}}} 
 \providecommand{\grey}[1]{ {\color{grey}{#1} }} 
 \providecommand{\green}[1]{{\color{green}{#1}}} 
-\providecommand{\orange}[1]{{\color{orange}{#1}}} \providecommand{\pink}[1]{{\color{pink}{#1}}} 
+\providecommand{\orange}[1]{{\color{orange}{#1}}} 
+\providecommand{\pink}[1]{{\color{pink}{#1}}} 
+\providecommand{\purple}[1]{{\color{purple}{#1}}} 
+\providecommand{\white}[1]{{\color{white}{#1}}} 
+\providecommand{\black}[1]{{\color{black}{#1}}} 
 
+%%% Environments
+\newcommand{\summ}{\displaystyle \sum}
+\newcommand{\pare}[1]{\left( #1\right)}
 
+%%% Bold
 \def\IA{{\mathbb A}}
 \def\IB{{\mathbb B}}
-\def\ID{{\mathbb D}}
-\def\IR{{\mathbb R}}
 \def\IC{{\mathbb C}}
-\def\IZ{{\mathbb Z}}
+\def\ID{{\mathbb D}}
 \def\II{{\mathbb I}}
-\def\IS{{\mathbb S}}
+\def\IK{{\mathbb K}}
 \def\IL{{\mathbb L}}
-\def\ILlam{{\mathbb L}^{\lambda}}
+\def\IN{{\mathbb N}}
 \def\IP{{\mathbb P}}
+\def\IR{{\mathbb R}}
+\def\IS{{\mathbb S}}
 \def\IU{{\mathbb U}}
 \def\IV{{\mathbb V}}
-\def\IY{{\mathbb Y}}
 \def\IW{{\mathbb W}}
 \def\IX{{\mathbb X}}
-\def\IK{{\mathbb K}}
-\def\IN{{\mathbb N}}
-
+\def\IY{{\mathbb Y}}
+\def\IZ{{\mathbb Z}}
+%
 \newcommand{\bA}{{\mathbf A}}
 \newcommand{\bB}{{\mathbf B}}
 \newcommand{\bC}{{\mathbf C}}
@@ -37,109 +46,118 @@
 \newcommand{\bE}{{\mathbf E}}
 \newcommand{\bF}{{\mathbf F}}
 \newcommand{\bG}{{\mathbf G}}
-\newcommand{\bS}{{\mathbf S}}
-\newcommand{\bY}{{\mathbf Y}}
+\newcommand{\bH}{{\mathbf H}}
+\newcommand{\bHr}{{\mathbf {\hat H}}}
+\newcommand{\bI}{{\mathbf I}}
 \newcommand{\bJ}{{\mathbf J}}
 \newcommand{\bK}{{\mathbf K}}
 \newcommand{\bL}{{\mathbf L}}
 \newcommand{\bM}{{\mathbf M}}
 \newcommand{\bN}{{\mathbf N}}
-\newcommand{\bI}{{\mathbf I}}
-\newcommand{\bH}{{\mathbf H}}
-\newcommand{\bHr}{{\mathbf {\hat H}}}
-\newcommand{\bP}{{\mathbf P}}
 \newcommand{\bO}{{\mathbf O}}
+\newcommand{\bP}{{\mathbf P}}
 \newcommand{\bQ}{{\mathbf Q}}
-\newcommand{\bW}{{\mathbf W}}
 \newcommand{\bR}{{\mathbf R}}
+\newcommand{\bS}{{\mathbf S}}
 \newcommand{\bT}{{\mathbf T}}
-\newcommand{\bZ}{{\mathbf Z}}
-\newcommand{\bX}{{\mathbf X}}
-\newcommand{\bx}{{\mathbf x}}
-\newcommand{\by}{{\mathbf y}}
-\newcommand{\bu}{{\mathbf u}}
-\newcommand{\bV}{{\mathbf V}}
 \newcommand{\bU}{{\mathbf U}}
-
-\newcommand{\bc}{{\mathbf c}}
-\newcommand{\bs}{{\mathbf s}}
-\newcommand{\be}{{\mathbf e}}
-\newcommand{\bn}{{\mathbf n}}
-\newcommand{\bd}{{\mathbf d}}
+\newcommand{\bV}{{\mathbf V}}
+\newcommand{\bW}{{\mathbf W}}
+\newcommand{\bX}{{\mathbf X}}
+\newcommand{\bY}{{\mathbf Y}}
+\newcommand{\bZ}{{\mathbf Z}}
+%
 \newcommand{\ba}{{\mathbf a}}
 \newcommand{\bb}{{\mathbf b}}
+\newcommand{\bc}{{\mathbf c}}
+\newcommand{\bd}{{\mathbf d}}
+\newcommand{\be}{{\mathbf e}}
 \newcommand{\bg}{{\mathbf g}}
-\newcommand{\bp}{{\mathbf p}}
-\newcommand{\br}{{\mathbf r}}
-\newcommand{\bq}{{\mathbf q}}
 \newcommand{\bh}{{\mathbf h}}
-\newcommand{\bt}{{\mathbf t}}
-\newcommand{\bv}{{\mathbf v}}
-\newcommand{\bw}{{\mathbf w}}
-\newcommand{\bz}{{\mathbf z}}
-
 \newcommand{\bfi}{{\mathbf i}}
 \newcommand{\bfj}{{\mathbf j}}
-
-\newcommand{\bxi}{ \boldsymbol{\xi} }
-\newcommand{\bpi}{{\mathbf \pi}}
-\newcommand{\brho}{{\mathbf \rho}}
-\newcommand{\bfz}{{\mathbf 0}}
-
-\newcommand{\cB}{ {\cal B} }
-\newcommand{\cC}{ {\cal C} }
-\newcommand{\cD}{ {\cal D} }
-\newcommand{\cO}{ {\cal O} }
-\newcommand{\cH}{ {\cal H} }
-\newcommand{\cI}{ {\cal I} }
-\newcommand{\cJ}{ {\cal J} }
-\newcommand{\cK}{ {\cal K} }
-\newcommand{\cP}{ {\cal P} }
-\newcommand{\cQ}{ {\cal Q} }
-\newcommand{\cS}{ {\cal S} }
-\newcommand{\cW}{ {\cal W} }
-\newcommand{\cX}{ {\cal X} }
-\newcommand{\cR}{ {\cal R} }
-\newcommand{\cT}{ {\cal T} }
-\newcommand{\cL}{ {\cal L} }
-\newcommand{\cN}{{\cal N}}
-
-\newcommand{\Si}{ \boldsymbol{\Sigma} }
-\newcommand{\bPi}{ \boldsymbol{\Pi} }
+\newcommand{\bl}{{\mathbf l}}
+\newcommand{\bn}{{\mathbf n}}
+\newcommand{\bp}{{\mathbf p}}
+\newcommand{\bq}{{\mathbf q}}
+\newcommand{\br}{{\mathbf r}}
+\newcommand{\bs}{{\mathbf s}}
+\newcommand{\bt}{{\mathbf t}}
+\newcommand{\bu}{{\mathbf u}}
+\newcommand{\bv}{{\mathbf v}}
+\newcommand{\bw}{{\mathbf w}}
+\newcommand{\bx}{{\mathbf x}}
+\newcommand{\bdx}{{\mathbf{\dot x}}}
+\newcommand{\by}{{\mathbf y}}
+\newcommand{\bz}{{\mathbf z}}
+%
+\newcommand{\bSigma}{\boldsymbol{\Sigma}}
+\newcommand{\bsigma}{\boldsymbol{\sigma}}
 \newcommand{\bTheta}{ \boldsymbol{\Theta} }
 \newcommand{\btheta}{ \boldsymbol{\theta} }
 \newcommand{\bPhi}{ \boldsymbol{\Phi} }
 \newcommand{\bphi}{ \boldsymbol{\phi} }
-\newcommand{\bpsi}{ \boldsymbol{\psi} }
 \newcommand{\bPsi}{ \boldsymbol{\Psi} }
-\newcommand{\bomega}{ \boldsymbol{\omega} }
+\newcommand{\bpsi}{ \boldsymbol{\psi} }
 \newcommand{\bOmega}{ \boldsymbol{\Omega} }
-\newcommand{\bupsilon}{ \boldsymbol{\upsilon} }
-\newcommand{\bgamma}{\boldsymbol{\gamma}}
+\newcommand{\bomega}{ \boldsymbol{\omega} }
+\newcommand{\bPi}{ \boldsymbol{\Pi} }
+\newcommand{\bpi}{{\boldsymbol \pi}}
+\newcommand{\bDelta}{\boldsymbol{\Delta}}
 \newcommand{\bdelta}{\boldsymbol{\delta}}
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\newcommand{\bgamma}{\boldsymbol{\gamma}}
+\newcommand{\bLambda}{\boldsymbol{\Lambda}}
+\newcommand{\blambda}{\boldsymbol{\lambda}}
+\newcommand{\bUpsilon}{\boldsymbol{\Upsilon}}
+\newcommand{\bupsilon}{ \boldsymbol{\upsilon} }
+\newcommand{\bXi}{\boldsymbol{\Xi}}
+\newcommand{\bxi}{ \boldsymbol{\xi} }
+%
+\newcommand{\brho}{{\boldsymbol \rho}}
 \newcommand{\bepsilon}{\boldsymbol{\epsilon}}
 \newcommand{\bell}{\boldsymbol{\ell}}
-\newcommand{\blambda}{\boldsymbol{\lambda}}
 \newcommand{\btau}{\boldsymbol{\tau}}
 \newcommand{\bmu}{\boldsymbol{\mu}}
-\newcommand{\bsigma}{\boldsymbol{\sigma}}
-\newcommand{\bSigma}{\boldsymbol{\Sigma}}
-\newcommand{\bDelta}{\boldsymbol{\Delta}}
-\newcommand{\bLambda}{\boldsymbol{\Lambda}}
-\newcommand{\bGamma}{\boldsymbol{\Gamma}}
-\newcommand{\bXi}{\boldsymbol{\Xi}}
-\newcommand{\bUpsilon}{\boldsymbol{\Upsilon}}
 \newcommand{\blueth}{{ \theta}}
-\newcommand{\GG}{ {\Gamma} }
+%
 \newcommand{\bone}{{\mathbf 1}}
 \newcommand{\bzer}{{\mathbf 0}}
 
+%%% Cal
+\newcommand{\cB}{ {\cal B} }
+\newcommand{\cC}{ {\cal C} }
+\newcommand{\cD}{ {\cal D} }
+\newcommand{\cH}{ {\cal H} }
+\newcommand{\cI}{ {\cal I} }
+\newcommand{\cJ}{ {\cal J} }
+\newcommand{\cK}{ {\cal K} }
+\newcommand{\cL}{ {\cal L} }
+\newcommand{\cN}{{\cal N}}
+\newcommand{\cO}{ {\cal O} }
+\newcommand{\cP}{ {\cal P} }
+\newcommand{\cQ}{ {\cal Q} }
+\newcommand{\cR}{ {\cal R} }
+\newcommand{\cS}{ {\cal S} }
+\newcommand{\cT}{ {\cal T} }
+\newcommand{\cW}{ {\cal W} }
+\newcommand{\cX}{ {\cal X} }
+
+%%% Dynamical systems
+\providecommand{\Hrealr}[0]{\mathcal{\hat{S}}} %
+\providecommand{\Htranr}[0]{\mathbf{\hat{H}}} %
+\providecommand{\Hreal}[0]{\cS} %
+\providecommand{\Htran}[0]{\bH} %
+\providecommand{\Gtran}[0]{\bG} %
+
+%%% Operator
 \newcommand{\rank}{{\mathbf{rank~}}}
 \newcommand{\bspan}{{\mathbf{span~}}}
 \newcommand{\bvec}{{\mathbf{vec~}}}
-%\newcommand{\deg}{{\mathbf{deg}}}
+\newcommand{\diag}{{\mathbf{diag}}}
 
-%%%%% New notations by Charles
+%%% Tensor 
+% old version
 %\newcommand{\vargen}[2]{\mathstrut^{#2} #1}
 %\newcommand{\var}[1]{x_{#1}}
 %\newcommand{\bvar}[1]{\mathbf{x}_{#1}}
@@ -148,8 +166,7 @@
 %\newcommand{\mun}[1]{\vargen{\mu_{i_{#1}}}{#1}}
 %\newcommand{\lani}[2]{\vargen{\lambda_{{#2}}}{#1}}
 %\newcommand{\muni}[2]{\vargen{\mu_{{#2}}}{#1}}
-
-%%%% New notations by Charles (Version new)
+% new version
 \newcommand{\vargen}[2]{{#1}_{#2}}
 \newcommand{\var}[1]{\vargen{x}{#1}}
 \newcommand{\bvar}[1]{\mathbf{x}_{#1}}
@@ -158,8 +175,10 @@
 \newcommand{\mun}[1]{\row{\vargen{\mu}{#1}({i_{#1}})}}
 \newcommand{\lani}[2]{\col{\vargen{\lambda}{#1}({{#2}})}}
 \newcommand{\muni}[2]{\row{\vargen{\mu}{#1}({{#2}})}}
+\newcommand{\tableau}[1]{\mathcal{T}_{#1}^{\otimes}}
+\newcommand{\ord}[0]{{n}}
 
-
+%%% Realization multivariate
 \newcommand{\IXlag}[1]{\vargen{\mathbb X^{\rm{Lag}}}{#1}}
 \newcommand{\IAlag}{{\mathbb A^{\rm{Lag}}}}
 \newcommand{\IBlag}{{\mathbb B^{\rm{Lag}}}}
@@ -167,19 +186,24 @@
 \newcommand{\IAgen}[1]{\vargen{\mathbb A}{#1}}
 \newcommand{\IBgen}[1]{\vargen{\mathbb B}{#1}}
 
-\newcommand{\tableau}[1]{\mathcal{T}_{#1}^\otimes}
-\newcommand{\ord}[0]{{n}}
+%%% Special
+\newcommand{\COD}{\textbf{C-o-D}}
 \newcommand{\flop}[0]{{{\rm \texttt{flop}}}}
 \newcommand{\bytes}[0]{{{\rm \texttt{Bytes}}}}
-
-\newcommand{\summ}{\displaystyle \sum}
-\newcommand{\pare}[1]{\left( #1\right)}
-\DeclareMathOperator{\diag}{diag}
-
 %\providecommand{\col}[1]{{\orange{#1}}} 
 %\providecommand{\row}[1]{{\pink{#1}}} 
 \providecommand{\col}[1]{{{#1}}} 
 \providecommand{\row}[1]{{{#1}}} 
 
-%\def\COD{{\textbf{C-o-D}}}
-\providecommand{\COD}[0]{\textbf{C-o-D}} 
+%%% Matrices/Vecteurs
+\providecommand{\matrixtwo}[4]{ \left[\begin{array}{cc} #1 & #2 \\ #3 & #4 \end{array}\right] } 
+\providecommand{\matrixthree}[9]{ \left[\begin{array}{ccc} #1 & #2 & #3 \\ #4 & #5 & #6 \\ #7 & #8 & #9\end{array}\right] } 
+\providecommand{\matrixtwocross}[4]{ \left[\begin{array}{c|c} #1 & #2 \\ \hline #3 & #4 \end{array}\right] } 
+\providecommand{\matrixthreecross}[9]{ \left[\begin{array}{c|cc} #1 & #2 & #3 \\ \hline #4 & #5 & #6 \\ #7 & #8 & #9\end{array}\right] } 
+\providecommand{\vectortwo}[2]{ \left[\begin{array}{c} #1 \\ #2 \end{array}\right] } 
+\providecommand{\vectorthree}[3]{ \left[\begin{array}{c} #1 \\ #2 \\ #3 \end{array}\right] } 
+\providecommand{\vectorfour}[4]{ \left[\begin{array}{c} #1 \\ #2 \\ #3 \\ #4 \end{array}\right] } 
+\providecommand{\vectortwoT}[2]{ \left[\begin{array}{cc} #1 & #2 \end{array}\right] } 
+\providecommand{\vectorthreeT}[3]{ \left[\begin{array}{ccc} #1 & #2 & #3 \end{array}\right] }
+\providecommand{\vectorfourT}[4]{ \left[\begin{array}{cccc} #1 & #2 & #3 & #4 \end{array}\right] }
+\providecommand{\vectorfiveT}[5]{ \left[\begin{array}{ccccc} #1 & #2 & #3 & #4 & #5 \end{array}\right] } %
