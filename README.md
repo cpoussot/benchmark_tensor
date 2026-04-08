@@ -2,12 +2,12 @@
 
 ## Overview
 
-This repository accompany the article by C. Poussot-Vassal, I-V. Gosea, P. Vuillemin and A.C. Antoulas in ["Tensor-based multivariate function approximation: methods benchmarking and comparison"](https://arxiv.org/abs/2506.04791) currently under reviewing, and its extendded [arXiv](https://arxiv.org/abs/2506.04791) version (regularly updated). The functions and script in this repository allow evaluating different codes for $n$-dimensional tensor approximation. More specifically, the current version evaluates the following codes:
-- ["mlf1" and "mlf2"](https://github.com/cpoussot/mLF), implementing the multivariate Loewner Framework (Alg. 1 & 2) in Matlab 
-- ["mdspack"](https://mordigitalsystems.fr/), implementing the  multivariate Loewner Framework in Fortran (developped by MOR Digital Systems)
-- ["kan1"](https://github.com/andrewpolar), implementing a Kolmogorov Arnold Network in Matlab
-- ["paaa" and "paaaalr"](https://github.com/lbalicki/parametric-AAA), implementing the parametric AAA and its low rank version in Matlab
-- ["tensorflow"](https://www.tensorflow.org/?hl=fr), implementing the Multi Layer Perceptron in Python (not supported in this pacakge)
+This repository accompany the article by C. Poussot-Vassal, I-V. Gosea, P. Vuillemin and A.C. Antoulas in "Tensor-based multivariate function approximation: methods benchmarking and comparison", currently under reviewing, and its extendded [arXiv](https://arxiv.org/abs/2506.04791) version (regularly updated). The functions and script in this repository allow evaluating different codes for $n$-dimensional tensor approximation. More specifically, the current version evaluates the following codes:
+- ["mlf1" and "mlf2"](https://github.com/cpoussot/mLF), implementing the multivariate Loewner Framework (Alg. 1 & 2), in Matlab 
+- ["mdspack"](https://mordigitalsystems.fr/), implementing the  multivariate Loewner Framework, in Fortran (developped by MOR Digital Systems)
+- ["kan1"](https://github.com/andrewpolar), implementing a Kolmogorov Arnold Network, in Matlab
+- ["paaa" and "paaaalr"](https://github.com/lbalicki/parametric-AAA), implementing the parametric AAA and its low rank version, in Matlab
+- ["tensorflow"](https://www.tensorflow.org/?hl=fr), implementing the Multi Layer Perceptron, in Python (not supported yet in this package)
 
 ## Contributions claim
 
@@ -50,20 +50,22 @@ The package contains:
         - `NTEST=500`, the number of random draw for evaluation of the model mismatch
         - `RESULT_PATH`, the path where you want to save the results (in the actual version, the path are my local ones, you should update them with yours)
         - `TEX_PATH`, the path where you want to save the LaTeX code generated and used for the report (in the actual version, the path are my local ones, you should update them with yours)
-    - adds to the Matlab path of the third parties software (in the actual version, the path are my local ones, you should update them with yours);
+    - it adds to the Matlab path of the third parties software (in the actual version, the path are my local ones, you should update them with yours);
 - `start_compare_step1`: this script applies the different approximation methods using different parametrizations.
-- `start_compare_step2`: this script evaluates the approximation quality of the different methods with different tuning parameters wrt. the true function and keeps the best candidate per method (over all parametrizations).
-- `start_compare_step3`: this script evaluate the best candidate for each method and report some statistics and figures.
+- `start_compare_step2`: this script evaluates the approximation quality of the different methods with different tuning parameters w.r.t. the true function and keeps the best candidate per method (over all parametrizations).
+- `start_compare_step3`: this script evaluates the best candidate for each method and report some statistics and figures.
 
 
 ## A simple procedure
 
 - Set the variables in `start_init`
     - Set e.g. `SPACE_CAS=1:2`, `NTEST=500`
-    - Chose the `RESULT_PATH` and `TEX_PATH`
+    - Chose the `RESULT_PATH` and `TEX_PATH` where you want to save your reults
     - Set the path for each method
 - Run `start_compare_step1`
     - In `RESULT_PATH`, folders for the different methods are created, and in each folder, Matlab files with the computed models is created (e.g. `RESULT_PATH/mlf1/cas_1_mlf1.mat`).
+    - Line 14: `METHOD_LIST` gathers all the method to be tested, but of course, to can restrict to one or few, or even add your own.
+    - Line 17 to 47: you may try different parametrizations and change the possible parameters.
 - Run `start_compare_step2`
     - In `RESULT_PATH`, in the same folder, a Matlab file containnig the best model is saved (e.g. `RESULT_PATH/mlf1/cas_1_mlf1_best.mat`).
 - Run `start_compare_step3`
