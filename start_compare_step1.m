@@ -6,6 +6,14 @@ add_path_third_parties
 RESULT_PATH     = '/Users/charles/Library/CloudStorage/ProtonDrive-charles.poussot@proton.me-folder/Research/Benchmarks/mLF_evaluation/vtest/results';
 
 %%% Chose method list & set tensor size limit
+% Be carefull, you need to have added these methods in you path
+% 'mlf1' (https://github.com/cpoussot/mLF)
+% 'mlf3' (https://github.com/cpoussot/mLF)
+% 'mdspack' (https://mordigitalsystems.fr/)
+% 'kan1' (https://github.com/andrewpolar)
+% 'paaa' (https://github.com/lbalicki/parametric-AAA)
+% 'paaalr' (https://github.com/lbalicki/parametric-AAA)
+% 'tensorflow' (https://www.tensorflow.org/?hl=fr)
 METHOD_LIST     = {'mlf1' 'mlf2' 'mdspack' 'kan1' 'paaa' 'paaalr'}; 
 TENSOR_MAX      = [ inf    inf    inf       30     30     30]; % in MB
 
@@ -18,7 +26,7 @@ paramMLF1.comb  = mlf.combinations_dim([length(paramMLF1.tol) length(paramMLF1.n
 paramMLF2.tol   = 1e-15;
 paramMLF2.null  = paramMLF1.null;
 paramMLF2.comb  = mlf.combinations_dim([length(paramMLF2.tol) length(paramMLF2.null)]);
-% MDS (https://mordigitalsystems.fr/)
+% MDSPACK (https://mordigitalsystems.fr/)
 paramMDS.method = {'R'};
 paramMDS.tolk   = [1e-2 1e-4 1e-6 1e-8 1e-10 1e-12 1e-14 1e-15 -1];
 paramMDS.tol    = [0 paramMLF1.tol];
@@ -39,11 +47,11 @@ paramAAALR.tol  = paramAAA.tol;
 paramAAALR.rank = [2 3 4 5];
 paramAAALR.comb = mlf.combinations_dim([length(paramAAALR.tol) length(paramAAALR.tol)]);
 % TensorFlow (https://www.tensorflow.org/?hl=fr)
-% Nota vailable in this version yet
+% Not available in this version yet
 
 %%% Number of random draw and examples number
 NTEST           = 500;
-spaceCAS        = 1:50;
+spaceCAS        = 1%:50;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% NO NEED TO CHANGE FROM HERE
