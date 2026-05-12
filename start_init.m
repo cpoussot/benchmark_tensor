@@ -6,7 +6,7 @@ set(groot,'defaulttextinterpreter','latex')
 set(groot,'defaultlegendinterpreter','latex')
 
 %%% Cases under consideration (check list in "mlf.examples")
-SPACE_CAS   = 1:2 %1:50;
+SPACE_CAS   = 1:3 %1:50;
 
 %%% Number of random draw and constant random seed to ensure reproducibility
 NTEST       = 500;

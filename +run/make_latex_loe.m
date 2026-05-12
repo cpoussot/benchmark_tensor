@@ -10,6 +10,9 @@ p_r     = mdl_opt.info.pr;
 n       = numel(p_c);
 N       = numel(c);
 Nmax    = 30;%20
+%
+lag_struct.pc   = p_c;
+lag_struct.lag  = lag;
 %%% Generic stuff
 % vars    = '(';
 % ord     = [];
@@ -38,7 +41,7 @@ vars_y  = [vars_y(1:end-1) ')'];
 latexList   = [];
 if N <= Nmax
     %%% KST
-    [Var,Lag,Bary]  = mlf.decoupling(p_c,lag);
+    [Var,Lag,Bary]  = mlf.decoupling(lag_struct);
     d = 1;
     for ii = 1:numel(p_c)%Var
         d = d.*Lag{ii}.*Var{ii}; % den
@@ -98,7 +101,7 @@ if N <= Nmax
     latexList   = [latexList '$\bd_{\textrm{mon}}' vars ' = ' latex(FUN_SYM(den)) '$ \\~~\\'];
 
     %%% KST decoupling
-    [Bary,Lag,Cx]  = mlf.decoupling(p_c,lag);
+    [Bary,Lag,Cx]  = mlf.decoupling(lag_struct);
     eval(['maxLength = length(Cx.d' num2str(n) ');'])
     if maxLength > 10
         latexList = [latexList '\begin{landscape} '];
@@ -239,8 +242,9 @@ latexList = regexprep(latexList, 'e\+?(-?\d+)', ' \\cdot 10^{$1}');
 %%% Equivalent NN
 if N < 20
     %
+    FUN         = @(x) vpa(sym(x),3);
     latexList   = [latexList '\noindent \textbf{Connection with Neural Networks} (equivalent numerator $\bn_{\textrm{lag}}$ representation):\\ '];
-    latexNN     = mlf.make_latex_NN_lag(p_c,double(w.*c)); 
+    latexNN     = mlf.make_latex_NN_lag(p_c,double(w.*c),FUN); 
     latexList   = [latexList ['\begin{figure}[H]\begin{center} \scalebox{.7}{' latexNN '} \caption{Equivalent NN representation of the numerator $\bn_{\textrm{lag}}$.}\end{center}\end{figure}']];
     % %
     % latexList   = [latexList '\noindent \textbf{Connection with Neural Networks} (equivalent denominator $\bd_{\textrm{lag}}$ representation):\\ '];
